@@ -1,4 +1,4 @@
-package com.madsen.xvc.interop;
+package com.madsen.xsc.interop;
 
 import java.util.List;
 
