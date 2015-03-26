@@ -7,14 +7,14 @@ import java.util.List;
  */
 public class ParameterDto {
 
-    public final List<Integer> intParams;
-    public final List<Double> doubleParams;
+    public final List<Long> intParams;
+    public final List<Double> floatParams;
     public final List<Boolean> boolParams;
 
 
-    public ParameterDto(List<Integer> intParams, List<Double> doubleParams, List<Boolean> boolParams) {
+    public ParameterDto(List<Long> intParams, List<Double> floatParams, List<Boolean> boolParams) {
         this.intParams = intParams;
-        this.doubleParams = doubleParams;
+        this.floatParams = floatParams;
         this.boolParams = boolParams;
     }
 }

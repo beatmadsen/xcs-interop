@@ -8,7 +8,7 @@ class MockGroovyAction implements Action {
     @Override
     void execute(ParameterDto parameters) {
         final s = parameters
-                .with { [] + intParams + doubleParams + boolParams }
+                .with { [] + intParams + floatParams + boolParams }
                 .join(", ")
 
         println s
