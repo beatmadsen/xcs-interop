@@ -1,5 +1,7 @@
 package com.madsen.xsc.interop;
 
+import com.madsen.xsc.interop.action.Action;
+import com.madsen.xsc.interop.predicate.Predicate;
 import groovy.lang.GroovyClassLoader;
 
 /**

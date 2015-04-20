@@ -1,4 +1,4 @@
-import com.madsen.xsc.interop.Action
+import com.madsen.xsc.interop.action.Action
 import com.madsen.xsc.interop.ParameterDto
 
 

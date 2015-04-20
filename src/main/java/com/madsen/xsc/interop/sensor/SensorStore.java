@@ -1,4 +1,4 @@
-package com.madsen.xsc.interop;
+package com.madsen.xsc.interop.sensor;
 
 /**
  * Created by erikmadsen on 20/04/2015.

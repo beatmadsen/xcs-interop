@@ -1,4 +1,4 @@
-package com.madsen.xsc.interop;
+package com.madsen.xsc.interop.sensor;
 
 import java.util.function.Function;
 

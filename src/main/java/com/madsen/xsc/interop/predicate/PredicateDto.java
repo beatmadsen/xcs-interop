@@ -1,4 +1,6 @@
-package com.madsen.xsc.interop;
+package com.madsen.xsc.interop.predicate;
+
+import com.madsen.xsc.interop.ParameterDto;
 
 /**
  * Created by erikmadsen2 on 20/03/15.

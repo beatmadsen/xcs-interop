@@ -1,4 +1,4 @@
-package com.madsen.xsc.interop;
+package com.madsen.xsc.interop.action;
 
 /**
  * Created by erikmadsen2 on 20/03/15.
