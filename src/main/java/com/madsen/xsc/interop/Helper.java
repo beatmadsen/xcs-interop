@@ -7,12 +7,12 @@ import groovy.lang.GroovyClassLoader;
 /**
  * Created by erikmadsen2 on 20/03/15.
  */
-public final class InteropHelper {
+public final class Helper {
 
-    private static final GroovyClassLoader loader = new GroovyClassLoader(InteropHelper.class.getClassLoader());
+    private static final GroovyClassLoader loader = new GroovyClassLoader(Helper.class.getClassLoader());
 
 
-    private InteropHelper() {
+    private Helper() {
 
     }
 
