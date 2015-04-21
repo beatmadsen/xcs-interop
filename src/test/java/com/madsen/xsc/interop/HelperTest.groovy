@@ -2,6 +2,8 @@ package com.madsen.xsc.interop
 
 import com.madsen.xsc.interop.actuator.Actuator
 import com.madsen.xsc.interop.actuator.ActuatorStore
+import com.madsen.xsc.interop.sensor.Sensor
+import com.madsen.xsc.interop.sensor.SensorStore
 import spock.lang.Specification
 
 /**
@@ -43,5 +45,35 @@ class HelperTest extends Specification {
 
         outParams.octopus == "1, 2, 1.1, 1.2, true, true, false"
         outParams.first == [1..16]
+    }
+
+
+    def "Evaluate a predicate"() {
+
+        given:
+        def sensorStore = Mock(SensorStore)
+        Sensor<String> abcSensor = Mock(Sensor)
+
+        def predicateString = getClass()
+                .classLoader
+                .getResourceAsStream("MockGroovyPredicate.groovy")
+                .text
+
+        when:
+        def predicate = Helper.evalPredicate(predicateString)
+
+        def inParams = new ParameterDto(
+                [1, 2],
+                [1.1, 1.2],
+                [true, true, false]
+        )
+
+        def isMatch = predicate.isMatch(inParams, sensorStore)
+
+        then:
+        1 * sensorStore.lookup("ABC") >> abcSensor
+        1 * abcSensor.next() >> Optional.of("1, 2, 1.1, 1.2, true, true, false")
+
+        isMatch
     }
 }
