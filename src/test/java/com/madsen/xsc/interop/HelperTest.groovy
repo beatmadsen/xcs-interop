@@ -2,8 +2,8 @@ package com.madsen.xsc.interop
 
 import com.madsen.xsc.interop.actuator.Actuator
 import com.madsen.xsc.interop.actuator.ActuatorStore
-import com.madsen.xsc.interop.sensor.Sensor
-import com.madsen.xsc.interop.sensor.SensorStore
+
+import com.madsen.xsc.interop.sensor.SensorValueStore
 import spock.lang.Specification
 
 /**
@@ -51,8 +51,7 @@ class HelperTest extends Specification {
     def "Evaluate a predicate"() {
 
         given:
-        def sensorStore = Mock(SensorStore)
-        Sensor<String> abcSensor = Mock(Sensor)
+        def sensorStore = Mock(SensorValueStore)
 
         def predicateString = getClass()
                 .classLoader
@@ -71,8 +70,7 @@ class HelperTest extends Specification {
         def isMatch = predicate.isMatch(inParams, sensorStore)
 
         then:
-        1 * sensorStore.lookup("ABC") >> abcSensor
-        1 * abcSensor.next() >> Optional.of("1, 2, 1.1, 1.2, true, true, false")
+        1 * sensorStore.latestValueOn("ABC") >> "1, 2, 1.1, 1.2, true, true, false"
 
         isMatch
     }

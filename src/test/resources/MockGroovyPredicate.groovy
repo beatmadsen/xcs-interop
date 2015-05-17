@@ -1,21 +1,21 @@
 import com.madsen.xsc.interop.ParameterDto
 import com.madsen.xsc.interop.predicate.Predicate
-import com.madsen.xsc.interop.sensor.Sensor
-import com.madsen.xsc.interop.sensor.SensorStore
+import com.madsen.xsc.interop.sensor.SensorValueStore
+
+
 
 class MockGroovyPredicate implements Predicate {
 
     @Override
-    boolean isMatch(final ParameterDto parameters, final SensorStore sensorStore) {
+    boolean isMatch(final ParameterDto parameters, final SensorValueStore sensorValueStore) {
 
         final s = parameters
                 .with { [] + intParams + floatParams + boolParams }
                 .join(", ")
 
-        final Sensor<String> sensor = sensorStore.lookup("ABC")
+        final String value = sensorValueStore.latestValueOn("ABC")
 
-        final observation = sensor.next().get()
 
-        return observation == s
+        return value == s
     }
 }
