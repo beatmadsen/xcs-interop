@@ -13,9 +13,9 @@ class MockGroovyPredicate implements Predicate {
                 .with { [] + intParams + floatParams + boolParams }
                 .join(", ")
 
-        final String value = sensorValueStore.latestValueOn("ABC")
+        final Optional<String> value = sensorValueStore.latestValueOn("ABC")
 
 
-        return value == s
+        return value.get() == s
     }
 }
